@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<mata charset="UTF-8"/>
+	<title>Spring Framework els</title>
+</head>
+<body>
+<h1>Status List</h1>
+<table>
+	<tr>
+		<th>DeviceName</th>
+		<th>DeviceIp</th>
+	</tr>
+	<tr th:each="status : ${statuss}">
+		<td th:text="${status.id}">123</td>
+		<td th:text="${status.DeviceIp}">123</td>
+	</tr>
+</table>
+</body>
+</html>

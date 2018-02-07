@@ -1,5 +1,6 @@
 package nl.pa3bmg.els.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +35,14 @@ public class BookServiceImpl implements BookService {
     }
 
     public Iterable<Book> findAll() {
-        return bookRepository.findAll();
+    		System.out.println("Books findAll");
+    		List<Book> books = new ArrayList<>();
+    		Iterable<Book> result = bookRepository.findAll();
+    		result.forEach(books::add);
+    		for (Book book : books) {
+    			System.out.println(book.getAuthor());
+    		}
+        return result;
     }
 
     public Page<Book> findByAuthor(String author, PageRequest pageRequest) {
